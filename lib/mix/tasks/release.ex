@@ -374,8 +374,8 @@ defmodule Mix.Tasks.Release do
     # Get include_erts value from relx_config
     include_erts = Keyword.get(relx_config, :include_erts, true)
     extras = case include_erts do
-      true  -> [{'#{erts}', '#{rel_dest_path([name, erts])}'}]
-      _     -> []
+      false -> []
+      _     -> [{'#{erts}', '#{rel_dest_path([name, erts])}'}]
     end
     # Re-package release with modifications
     file_list = File.ls!(rel_dest_path(name))
