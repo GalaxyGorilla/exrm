@@ -553,6 +553,8 @@ case "$1" in
             -boot_var ERTS_LIB_DIR "$ERTS_LIB_DIR" \
             -env ERL_LIBS "$REL_LIB_DIR" -config "$SYS_CONFIG" \
             -pa "$REL_LIB_DIR/consolidated" \
+            ${NAME_TYPE} ${NAME}
+            ${ERL_COOKIE_ARG}
             -args_file "$VMARGS_PATH" \
             ${ERL_OPTS} \
             -user Elixir.IEx.CLI -extra --no-halt +iex
