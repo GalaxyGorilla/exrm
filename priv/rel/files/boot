@@ -179,11 +179,7 @@ fi
 #the node name can be set via environment variables
 #NODE_NAME or NODE_SNAME which overwrite a given name
 #from vm.args
-if [ ! -z "$NODE_SNAME" ]; then
-    printf "Using node name $NODE_SNAME."
-    NAME_ARG=$NODE_SNAME
-    NAME_TYPE="-sname"
-elif [ ! -z "$NODE_NAME" ]; then
+if [ ! -z "$NODE_NAME" ]; then
     printf "Using node name $NODE_NAME."
     NAME_ARG=$NODE_NAME
     NAME_TYPE="-name"
