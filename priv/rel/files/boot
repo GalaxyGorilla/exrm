@@ -179,6 +179,7 @@ fi
 #the node name can be set via environment variables
 #NODE_NAME or NODE_SNAME which overwrite a given name
 #from vm.args
+printf ">> NODE: $NODE_NAME"
 if [ ! -z "$NODE_NAME" ]; then
     printf "Using node name $NODE_NAME."
     NAME_ARG=$NODE_NAME
@@ -553,7 +554,7 @@ case "$1" in
             -pa "$REL_LIB_DIR/consolidated" \
             ${NAME_TYPE} ${NAME}
             ${ERL_COOKIE_ARG}
-            -args_file "$VMARGS_PATH" \
+#    -args_file "$VMARGS_PATH" \
             ${ERL_OPTS} \
             -user Elixir.IEx.CLI -extra --no-halt +iex
 
