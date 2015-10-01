@@ -105,14 +105,10 @@ adjust_name() {
             # Add @hostname
             case $NAME_TYPE in
                 -sname)
-                    # hacky patch for now
-                    #NAME=$NAME@`hostname -s`
-                    NAME=$NAME@127.0.0.1
+                    NAME=$NAME@`hostname -s`
                     ;;
                 -name)
-                    # hacky patch for now
-                    #NAME=$NAME@`hostname -f`
-                    NAME=$NAME@127.0.0.1
+                    NAME=$NAME@`hostname -f`
                     ;;
             esac
             ;;
