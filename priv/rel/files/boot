@@ -179,9 +179,9 @@ if [ ! -f "$VMARGS_PATH" ]; then
     cp "$RELEASE_CONFIG_DIR/vm.args" "$GENERATED_CONFIG_DIR/vm.args"
 fi
 
-if [ $RELX_REPLACE_OS_VARS ]; then
+if [ "$RELX_REPLACE_OS_VARS" = "true" ]; then
     _replace_os_vars "$VMARGS_PATH" "$VMARGS_PATH.2.config"
-    VMARGS_PATH=$VMARGS_PATH.2.config
+    mv "$VMARGS_PATH.2.config" $VMARGS_PATH
 fi
 
 # Make sure log directory exists
@@ -193,9 +193,9 @@ if ! [ -w $RUNNER_LOG_DIR ] ; then
     exit 1
 fi
 
-if [ $RELX_REPLACE_OS_VARS ]; then
+if [ "$RELX_REPLACE_OS_VARS" = "true" ]; then
     _replace_os_vars "$SYS_CONFIG" "$SYS_CONFIG.2.config"
-    SYS_CONFIG=$SYS_CONFIG.2.config
+    mv "$SYS_CONFIG.2.config" $SYS_CONFIG
 fi
 
 # Extract the target node name from node.args
